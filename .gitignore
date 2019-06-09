@@ -338,3 +338,8 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/NetCoreLogger/Logger/DefaultSessionIdAccessor.cs
+/NetCoreLogger/Logger/ICorrelationIdAccessor.cs
+/NetCoreLogger/Logger/LogHeaderMiddleware.cs
+/NetCoreLogger/Logger/ILoggerProvider.cs
+/NetCoreLogger/Logger/ILogger.cs

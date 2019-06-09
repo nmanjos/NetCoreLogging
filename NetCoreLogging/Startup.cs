@@ -15,6 +15,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 //using NetCoreLogging.Logger;
 using Microsoft.Extensions.Logging;
+using CorrelationId;
+using NetCoreLogger;
 
 namespace NetCoreLogging
 {
@@ -49,11 +51,20 @@ namespace NetCoreLogging
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             _logger.LogInformation("Added dbcontex and MVC to services");
+
+            services.AddCorrelationId();
+
+            //services.AddScoped<ScopedClass>();
+            //services.AddTransient<TransientClass>();
+            //services.AddSingleton<SingletonClass>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+ 
             if (env.IsDevelopment())
             {
                 _logger.LogInformation("In Development environment");
@@ -72,7 +83,11 @@ namespace NetCoreLogging
             app.UseCookiePolicy();
 
             app.UseAuthentication();
-
+            app.UseCorrelationId(new CorrelationIdOptions
+            {
+                Header = "X-Correlation-ID",
+                UseGuidForCorrelationId = true
+            });
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

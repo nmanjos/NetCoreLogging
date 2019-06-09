@@ -7,6 +7,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using NetCoreLogger;
 
 
 namespace NetCoreLogging
@@ -27,8 +28,13 @@ namespace NetCoreLogging
                     // logging.AddFileLogger(); 
                     logging.AddFileLogger(options =>
                     {
+                        options.Folder = @"C:\logs\FileLogger";
                         options.MaxFileSizeInMB = 5;
+                        options.RetainPolicyFileCount = 5;
+                        options.FileName = "NetCoreLoggingExample";
                     });
-                });
+                })
+            
+                    ;
     }
 }

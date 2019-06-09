@@ -7,14 +7,22 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Logger\ILogger.cs" />
-    <Compile Remove="Logger\ILoggerProvider.cs" />
+    <Compile Remove="Logger\**" />
+    <Content Remove="Logger\**" />
+    <EmbeddedResource Remove="Logger\**" />
+    <None Remove="Logger\**" />
   </ItemGroup>
 
 
   <ItemGroup>
+    <PackageReference Include="CorrelationId" Version="2.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\NetCoreLogger\NetCoreLogger.csproj" />
   </ItemGroup>
 
 </Project>
