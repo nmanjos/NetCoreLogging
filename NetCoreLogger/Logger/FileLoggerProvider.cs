@@ -154,6 +154,7 @@ namespace NetCoreLogger
 
                 SB.AppendLine();
                 WriteLine(SB.ToString());
+                SB.Clear();
             }
         }
         void ThreadProc()
@@ -177,6 +178,8 @@ namespace NetCoreLogger
         protected override void Dispose(bool disposing)
         {
             Terminated = true;
+            Lengths.Clear();
+            InfoQueue.Clear();
             base.Dispose(disposing);
         }
 

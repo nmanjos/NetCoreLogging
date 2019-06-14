@@ -32,7 +32,7 @@ namespace NetCoreLogger
         {
             get
             {
-                return !string.IsNullOrEmpty(fFileName) ? fFileName : $"Logfile{DateTime.UtcNow.ToString("yyyyMMddhh")}.log";
+                return !string.IsNullOrEmpty(fFileName) ? $"{fFileName}{ DateTime.UtcNow.ToString("yyyyMMddhhmm")}.log" : $"Logfile{DateTime.UtcNow.ToString("yyyyMMddhhmm")}.log";
             }
             set { fFileName = value; }
         }

@@ -3,9 +3,9 @@ using Microsoft.Extensions.Options;
 
 namespace NetCoreLogger
 {
-    internal class FileLoggerOptionsSetup : ConfigureFromConfigurationOptions<FileLoggerOptions>
+    internal class LogstashLoggerOptionsSetup : ConfigureFromConfigurationOptions<LogstashLoggerOptions>
     {
-        public FileLoggerOptionsSetup(ILoggerProviderConfiguration<FileLoggerProvider>
+        public LogstashLoggerOptionsSetup(ILoggerProviderConfiguration<LogstashLoggerProvider>
                                       providerConfiguration)
             : base(providerConfiguration.Configuration)
         {
