@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace NetCoreLogger
 {
+    [Microsoft.Extensions.Logging.ProviderAlias("Logstash")]
     public class LogstashLoggerProvider : LoggerProvider
     {
         bool Terminated;
