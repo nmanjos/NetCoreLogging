@@ -26,7 +26,7 @@ namespace NetCoreLogger
             // rotate throug servers if there is more than one.
             if (this.Settings.Servers.Count > 0)  // if by any chance the Server settings is not loaded, do nothing
             {
-
+                // TODO Send Code here
             }
         }
 
